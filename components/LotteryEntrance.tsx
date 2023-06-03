@@ -6,9 +6,9 @@ import { useNotification } from "@web3uikit/core"
 import { Bell } from "@web3uikit/icons"
 
 export default function LotteryEntrance() {
-  const [entranceFee, setEntranceFee] = useState<string>("")
-  const [numPlayers, setNumPlayers] = useState<string>("")
-  const [recentWinner, setRecentWinner] = useState<string>("")
+  const [entranceFee, setEntranceFee] = useState<string>("0")
+  const [numPlayers, setNumPlayers] = useState<string>("0")
+  const [recentWinner, setRecentWinner] = useState<string>("0")
   const dispatch = useNotification()
 
   const { chainId: chainIdHex, isWeb3Enabled } = useMoralis()
@@ -75,7 +75,7 @@ export default function LotteryEntrance() {
   async function updateUI() {
     const entranceFeeFromCall = ((await getEntranceFee()) as BigNumber).toString()
     const numberOfPlayersFromCall = ((await getNumberOfPlayers()) as BigNumber).toString()
-    const mostRecentWinnerFromCall = ((await getMostRecentWinner()) as BigNumber).toString()
+    const mostRecentWinnerFromCall = (await getMostRecentWinner()) as string
     setEntranceFee(entranceFeeFromCall)
     setNumPlayers(numberOfPlayersFromCall)
     setRecentWinner(mostRecentWinnerFromCall)
