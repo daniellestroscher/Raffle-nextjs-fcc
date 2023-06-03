@@ -2,6 +2,10 @@
   "name": "nextjs-raffle-fcc",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
+  "repository": "https://github.com/daniellestroscher/Raffle-nextjs-fcc.git",
+  "author": "Danielle Stroscher <daniellejs98@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
