@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { ethers, BigNumber } from "ethers"
-import { useWeb3Contract } from "react-moralis"
+import { useWeb3Contract, useMoralis } from "react-moralis"
 import { ContractAddresses, raffleAbi } from "../constants"
-import { useMoralis } from "react-moralis"
-import { useNotification } from "web3uikit"
+import { useNotification } from "@web3uikit/core"
 import { Bell } from "@web3uikit/icons"
 
 export default function LotteryEntrance() {
@@ -12,7 +11,7 @@ export default function LotteryEntrance() {
   const [recentWinner, setRecentWinner] = useState<string>("")
   const dispatch = useNotification()
 
-  const { chainId: chainIdHex, isWeb3Enabled, enableWeb3 } = useMoralis()
+  const { chainId: chainIdHex, isWeb3Enabled } = useMoralis()
   const chainId = parseInt(chainIdHex as string).toString()
   const raffleAddress = chainId in ContractAddresses ? ContractAddresses[chainId][0] : null
 
@@ -99,7 +98,7 @@ export default function LotteryEntrance() {
   return (
     <div className="p-5">
       {raffleAddress ? (
-        <>
+        <div>
           <button
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded ml-auto"
             onClick={async function () {
@@ -116,16 +115,16 @@ export default function LotteryEntrance() {
               <>Enter Lottery</>
             )}
           </button>
-          {entranceFee != "" && (
+          {entranceFee != "" ? (
             <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
+          ) : (
+            <></>
           )}
           <div>Players: {numPlayers}</div>
           <div>Recent Winner: {recentWinner}</div>
-        </>
+        </div>
       ) : (
-        <>
-          <div>No Raffle Address Detected</div>
-        </>
+        <div>No Raffle Address Detected</div>
       )}
     </div>
   )

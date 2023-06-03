@@ -1,8 +1,6 @@
 {
   "name": "nextjs-raffle-fcc",
   "version": "0.1.0",
-  "private": true,
-  "main": "index.js",
   "repository": "https://github.com/daniellestroscher/Raffle-nextjs-fcc.git",
   "author": "Danielle Stroscher <daniellejs98@gmail.com>",
   "license": "MIT",
@@ -14,15 +12,20 @@
   "dependencies": {
     "@next/font": "13.4.4",
     "@types/node": "20.2.5",
-    "@types/react": "18.2.7",
-    "@types/react-dom": "18.2.4",
-    "moralis": "^2.22.0",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "@web3auth/web3auth": "^2.1.3",
+    "@web3uikit/core": "^1.1.0",
+    "@web3uikit/icons": "^1.1.2",
+    "@web3uikit/web3": "^0.3.2",
+    "magic-sdk": "^17.3.0",
+    "moralis-v1": "^1.13.0",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-moralis": "^1.4.2",
-    "typescript": "5.1.3",
-    "web3uikit": "^1.0.4"
+    "typescript": "5.1.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
